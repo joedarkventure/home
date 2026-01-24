@@ -1,190 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="JOEDARK VENTURE – Quality building blocks, cement, sand, iron rods, roofing sheets and construction materials in Ghana"/>
-    <title>JOEDARK VENTURE | Quality Blocks & Building Materials – Ghana</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PROPHET JOSEPH Building Hub — Blocks • Construction • Designs</title>
+  <meta name="description" content="Your trusted partner in building materials supply, block production, land services, architectural designs, house plans, carpentry, steel bending and complete construction solutions in Ghana."/>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome CDN (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        /* Floating WhatsApp button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 999;
-        }
+  <style>
+    :root {
+      --primary: #1e40af;       /* blue-700 */
+      --primary-dark: #1e3a8a;
+      --whatsapp: #25D366;
+      --gray-1: #f9fafb;
+      --gray-2: #e5e7eb;
+      --gray-6: #4b5563;
+      --gray-8: #1f2937;
+      --gray-9: #111827;
+    }
 
-        .whatsapp-float a {
-            display: block;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .whatsapp-float img {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-            transition: all 0.3s ease;
-        }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--gray-8);
+      background-color: var(--gray-1);
+    }
 
-        .whatsapp-float:hover img {
-            transform: scale(1.14);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-        }
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        /* CTA button */
-        .btn-primary {
-            display: inline-block;
-            background-color: #e67e22;
-            color: white;
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.15rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(230,126,34,0.3);
-        }
+    /* Header & Navigation */
+    header {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-        .btn-primary:hover {
-            background-color: #d35400;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(230,126,34,0.4);
-        }
-    </style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .logo-wrapper {
+      height: 52px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-wrapper img {
+      height: 100%;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--gray-9);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      padding: 140px 0 100px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 700;
+      color: var(--gray-9);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray-6);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: var(--whatsapp);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 38px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-float i {
+      margin-top: -3px;
+    }
+
+    /* Floating Social Media Bar (right side) */
+    .social-bar {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 998;
+      display: flex;
+      flex-direction: column;
+      background: rgba(31, 41, 55, 0.92);
+      border-radius: 12px 0 0 12px;
+      padding: 12px 8px;
+      box-shadow: -4px 0 12px rgba(0,0,0,0.25);
+    }
+
+    .social-bar a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 12px 10px;
+      transition: all 0.3s;
+      display: block;
+    }
+
+    .social-bar a:hover {
+      color: var(--primary);
+      transform: translateX(-4px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        margin: 20px 0;
+        flex-direction: column;
+        gap: 1.2rem;
+        font-size: 1.1rem;
+      }
+
+      .hero {
+        padding: 100px 0 80px;
+      }
+
+      .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        font-size: 32px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .social-bar {
+        display: none;   /* optional: hide on mobile or make horizontal at bottom */
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#why-us">Why Choose Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero / Main Title -->
-     <section class="hero">
-
-        <!-- Company Logo -->
-        <img src="logo.jpg" alt="JOEDARK VENTURE Logo" class="logo">
-
-        <h2>JOEDARK VENTURE</h2>
-        <p>Premium quality blocks, cement, sand, stones, iron rods, roofing sheets & all construction essentials – delivered with trust across Ghana</p>
-        <a href="#contact" class="btn-primary">Request Quote / Place Order</a>
-</section>
-       <div class="container">
-            <h2>Welcome to JOEDARK VENTURE</h2>
-            <p>
-                JOEDARK VENTURE is a fast-growing, trusted supplier of high-quality building materials in Ghana.<br>
-                We are committed to providing durable, certified products to homeowners, contractors, engineers, developers and construction companies — backed by reliable delivery and honest pricing.
-            </p>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo-wrapper">
+          <img src="logo.jpg" alt="PROPHET JOSEPH Building Hub Logo">
         </div>
-    </section>
 
-    <!-- Products -->
-    <section id="products" class="section gray">
-        <div class="container">
-            <h2>Our Core Products</h2>
-
-            <div class="features">
-
-                <div class="feature" data-icon="🧱">
-                    <h3>Solid & Hollow Blocks</h3>
-                    <p>6-inch, 9-inch solid & hollow blocks – strong, uniform and cost-effective for all types of construction.</p>
-                </div>
-
-                <div class="feature" data-icon="🏗️">
-                    <h3>Cement</h3>
-                    <p>Premium Portland cement in 50kg bags – consistent strength for foundations, columns, slabs and plastering.</p>
-                </div>
-
-                <div class="feature" data-icon="🏜️">
-                    <h3>Sand & Quarry Stones</h3>
-                    <p>Clean river sand, pit sand and various grades of aggregates / quarry stones for concrete and block production.</p>
-                </div>
-
-                <div class="feature" data-icon="⚙️">
-                    <h3>Iron Rods / Rebars</h3>
-                    <p>High-tensile reinforcement bars (Y12, Y16, Y20, Y25 & more) – locally produced and imported options available.</p>
-                </div>
-
-                <div class="feature" data-icon="🏠">
-                    <h3>Roofing Sheets</h3>
-                    <p>Long span aluminum-zinc, corrugated iron sheets, stone-coated tiles – durable and stylish roofing solutions.</p>
-                </div>
-
-                <div class="feature" data-icon="🛠️">
-                    <h3>Other Materials</h3>
-                    <p>Binding wire, nails, ceiling boards, PVC pipes, paints, tiles, door & window frames, and many more essentials.</p>
-                </div>
-
-            </div>
-
+        <div class="nav-links">
+          <a href="#home" class="active">Home</a>
+          <a href="#services">Services</a>
+          <a href="#materials">Materials</a>
+          <a href="#designs">Designs</a>
+          <a href="#contact">Contact</a>
         </div>
-    </section>
 
-    <!-- Why Choose Us -->
-    <section id="why-us" class="section">
-        <div class="container">
-            <h2>Why Choose Us</h2>
-            <div class="features">
-
-                <div class="feature" data-icon="💪">
-                    <h3>Strong & Durable Materials</h3>
-                    <p>Only quality-tested and certified products that meet Ghanaian & international standards.</p>
-                </div>
-
-                <div class="feature" data-icon="🚚">
-                    <h3>Reliable Supply & Delivery</h3>
-                    <p>Fast, dependable delivery across Greater Accra and selected regions – on schedule, every time.</p>
-                </div>
-
-                <div class="feature" data-icon="💰">
-                    <h3>Competitive & Transparent Prices</h3>
-                    <p>Best market rates without compromising quality – no hidden charges.</p>
-                </div>
-
-                <div class="feature" data-icon="🤝">
-                    <h3>Trusted Customer Support</h3>
-                    <p>Friendly team always ready to assist with product advice, quantities, and delivery planning.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section gray">
-        <div class="container">
-            <h2>Contact Us Today</h2>
-            <p style="text-align:center; font-size:1.35rem; margin:2rem 0;">
-                <strong>Phone:</strong> +233 508080055 <br><br>
-                <strong>Email:</strong> joedarkventureghana@gmail.com<br><br>
-                <strong>Location:</strong> Greater Accra, Ghana
-            </p>
-
-            <div style="text-align:center; margin:3rem 0;">
-                <a href="tel:+233508080055" class="btn-primary">Call Us Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 JOEDARK VENTURE. All Rights Reserved.<br>Quality You Can Build On.</p>
-    </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/233508080055?text=Hello%20JOEDARK%20VENTURE%20team%2C%20I'm%20interested%20in%20your%20building%20materials..." target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Contact us on WhatsApp">
-        </a>
+        <a href="#contact" class="btn-primary">Get Quote</a>
+      </nav>
     </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Your Complete Building Partner in Ghana</h1>
+      <p>We supply & produce quality blocks • provide all building materials • land documentation support • architectural designs & house plans • carpentry • steel bending • and full construction execution.</p>
+      
+      <a href="#contact" class="btn-primary" style="font-size:1.15rem; padding:14px 32px;">
+        Start Your Project Today →
+      </a>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/233xxxxxxxxx?text=Hello%20Prophet%20Joseph%20Building%20Hub%2C%20I%20want%20to%20discuss%20my%20project..." 
+     class="whatsapp-float" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Floating Social Media Bar (replace # with real links) -->
+  <div class="social-bar">
+    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/yourhandle" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="tel:+233xxxxxxxxx"><i class="fas fa-phone"></i></a>
+  </div>
+
+  <!-- You can continue adding more sections here -->
 
 </body>
 </html>
