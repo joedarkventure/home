@@ -1,23 +1,19 @@
-/* ==========================================================================
-   style.css – PROPHET JOSEPH Building Hub
-   Building materials • Block production • Designs • Construction
-   ========================================================================== */
-
+/* =========================
+   ROOT VARIABLES
+========================= */
 :root {
-  --primary: #1e40af;          /* blue-700 main brand color */
+  --primary: #1e40af;
   --primary-dark: #1e3a8a;
-  --primary-light: #3b82f6;
-  --whatsapp: #25D366;
-  --gray-1: #f9fafb;
-  --gray-2: #e5e7eb;
-  --gray-3: #d1d5db;
-  --gray-6: #4b5563;
-  --gray-8: #1f2937;
-  --gray-9: #111827;
+  --dark: #111827;
+  --gray: #6b7280;
+  --light: #f9fafb;
   --white: #ffffff;
+  --whatsapp: #25D366;
 }
 
-/* Reset & Base */
+/* =========================
+   RESET & BASE
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -29,73 +25,54 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--light);
+  color: var(--dark);
   line-height: 1.6;
-  color: var(--gray-8);
-  background-color: var(--gray-1);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Layout */
+/* =========================
+   CONTAINER
+========================= */
 .container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.5rem;          /* ≈24px */
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
 }
 
-/* Typography */
-h1, h2, h3 {
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--gray-9);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ── Header & Navigation ── */
+/* =========================
+   HEADER & NAVIGATION
+========================= */
 header {
-  background-color: var(--white);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: var(--white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  height: 80px;
+  height: 78px;
 }
 
-.logo-wrapper {
-  height: 52px;
-  display: flex;
-  align-items: center;
+.logo img {
+  height: 50px;
 }
 
-.logo-wrapper img {
-  height: 100%;
-  width: auto;
-  max-width: 240px;
-  object-fit: contain;
-  display: block;
-}
-
+/* NAV LINKS */
 .nav-links {
   display: flex;
-  gap: 2.5rem;
-  font-weight: 500;
+  gap: 2rem;
 }
 
 .nav-links a {
-  color: var(--gray-9);
-  transition: color 0.18s ease;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--dark);
+  position: relative;
 }
 
 .nav-links a:hover,
@@ -103,145 +80,291 @@ nav {
   color: var(--primary);
 }
 
-/* Buttons */
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
-  padding: 0.625rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  left: 0;
+  bottom: -6px;
+  transition: width 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
 }
 
-/* ── Hero Section ── */
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: var(--dark);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  padding: 140px 0 100px;
+  padding: 140px 0 110px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
   text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6.5vw, 4.2rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  font-weight: 700;
+  margin-bottom: 1.4rem;
 }
 
 .hero p {
+  max-width: 760px;
+  margin: auto;
   font-size: 1.25rem;
-  color: var(--gray-6);
-  max-width: 680px;
-  margin: 0 auto 2.5rem;
+  color: var(--gray);
 }
 
-/* ── Floating WhatsApp Button ── */
-.whatsapp-float {
+/* HERO STATS */
+.hero-stats {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.stat {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.stat h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+  padding: 100px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-title h2 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  max-width: 720px;
+  margin: auto;
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+/* =========================
+   GRID & CARDS
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  background: var(--white);
+  padding: 36px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  transition: all 0.35s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.1);
+}
+
+.card i {
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--gray);
+  font-size: 1.05rem;
+}
+
+/* =========================
+   SECTION THEMES
+========================= */
+#materials {
+  background: #f9fafb;
+}
+
+#designs {
+  background: var(--white);
+}
+
+#contact {
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+/* =========================
+   WHATSAPP FLOAT
+========================= */
+.whatsapp {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 30px;
+  right: 30px;
   width: 60px;
   height: 60px;
-  background-color: var(--whatsapp);
-  color: white;
+  background: var(--whatsapp);
   border-radius: 50%;
-  font-size: 38px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  color: var(--white);
+  font-size: 34px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: transform 0.3s ease;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.12);
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+.whatsapp:hover {
+  transform: scale(1.08);
 }
 
-.whatsapp-float i {
-  margin-top: -4px;
-}
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
 
-/* ── Floating Social Media Bar (right side) ── */
+  .nav-links {
+    position: absolute;
+    top: 78px;
+    right: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    padding: 30px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .card {
+    padding: 30px 26px;
+  }
+}
+/* =========================
+   SOCIAL MEDIA FLOATING BAR
+========================= */
 .social-bar {
   position: fixed;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  z-index: 9998;
-  background: rgba(31, 41, 55, 0.94);
+  background: rgba(17, 24, 39, 0.95);
+  padding: 12px 8px;
   border-radius: 12px 0 0 12px;
-  padding: 14px 8px;
-  box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.25);
 }
 
 .social-bar a {
-  color: white;
-  font-size: 1.55rem;
-  margin: 14px 10px;
-  display: block;
-  transition: all 0.25s ease;
+  color: #ffffff;
+  font-size: 1.4rem;
+  padding: 6px;
+  transition: all 0.3s ease;
 }
 
 .social-bar a:hover {
-  color: var(--primary-light);
-  transform: translateX(-5px);
+  color: var(--primary);
+  transform: translateX(-6px);
 }
 
-/* ── Responsive Design ── */
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  background: #0f172a;
+  color: #cbd5f5;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.site-footer p {
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.footer-socials a {
+  color: #cbd5f5;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--primary);
+  transform: translateY(-4px);
+}
+
+/* Hide floating bar on small screens */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    height: auto;
-    padding: 1rem 0;
-  }
-
-  .nav-links {
-    margin: 1.25rem 0 1rem;
-    flex-direction: column;
-    gap: 1.25rem;
-    font-size: 1.1rem;
-  }
-
-  .hero {
-    padding: 100px 0 80px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.3rem, 8vw, 3.6rem);
-  }
-
-  .hero p {
-    font-size: 1.125rem;
-  }
-
-  .whatsapp-float {
-    width: 56px;
-    height: 56px;
-    font-size: 34px;
-    bottom: 24px;
-    right: 24px;
-  }
-
-  /* Hide vertical social bar on mobile – too intrusive */
   .social-bar {
     display: none;
   }
 }
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 1rem;
-  }
-
-  .btn-primary {
-    padding: 0.75rem 1.75rem;
-    width: 100%;
-    text-align: center;
-  }
+.social-bar a:hover .fa-tiktok,
+.footer-socials a:hover .fa-tiktok {
+  color: #00f2ea;
 }
