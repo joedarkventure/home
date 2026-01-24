@@ -1,250 +1,247 @@
-/* style.css - JOEDARK VENTURE - Modern Building Materials Website */
-
 /* ==========================================================================
-   1. Reset & Base
+   style.css – PROPHET JOSEPH Building Hub
+   Building materials • Block production • Designs • Construction
    ========================================================================== */
 
+:root {
+  --primary: #1e40af;          /* blue-700 main brand color */
+  --primary-dark: #1e3a8a;
+  --primary-light: #3b82f6;
+  --whatsapp: #25D366;
+  --gray-1: #f9fafb;
+  --gray-2: #e5e7eb;
+  --gray-3: #d1d5db;
+  --gray-6: #4b5563;
+  --gray-8: #1f2937;
+  --gray-9: #111827;
+  --white: #ffffff;
+}
+
+/* Reset & Base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--gray-8);
+  background-color: var(--gray-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ==========================================================================
-   2. Typography
-   ========================================================================== */
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: #1a3c34;           /* dark teal/greenish for construction feel */
-}
-
-h1 {
-    font-size: 3.2rem;
-}
-
-h2 {
-    font-size: 2.5rem;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 0.6rem;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    background-color: #e67e22;    /* warm accent orange */
-    border-radius: 2px;
-}
-
-/* ==========================================================================
-   3. Layout & Sections
-   ========================================================================== */
-
+/* Layout */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;          /* ≈24px */
 }
 
-section {
-    padding: 5rem 0;
+/* Typography */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--gray-9);
 }
 
-section.gray {
-    background-color: #f1f3f5;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Header / Hero */
+/* ── Header & Navigation ── */
 header {
-    background: linear-gradient(135deg, #1a3c34 0%, #2c5f54 100%);
-    color: white;
-    text-align: center;
-    padding: 6rem 1rem 4rem;
+  background-color: var(--white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-header h1 {
-    font-size: 3.8rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -1px;
-}
-
-header p {
-    font-size: 1.4rem;
-    opacity: 0.9;
-}
-
-/* Navigation */
 nav {
-    background-color: #0f2a24;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
+.logo-wrapper {
+  height: 52px;
+  display: flex;
+  align-items: center;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.3s ease, transform 0.2s ease;
-    padding: 0.6rem 1rem;
-    border-radius: 6px;
+.logo-wrapper img {
+  height: 100%;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
 }
 
-nav a:hover,
-nav a.active {
-    color: #e67e22;
-    background-color: rgba(230, 126, 34, 0.1);
-    transform: translateY(-2px);
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  font-weight: 500;
 }
 
-/* Hero section (below nav) */
+.nav-links a {
+  color: var(--gray-9);
+  transition: color 0.18s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.625rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+}
+
+/* ── Hero Section ── */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                url('https://images.unsplash.com/photo-1503387762-592deb58caa5?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 9rem 1rem;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  padding: 140px 0 100px;
+  text-align: center;
 }
 
-.hero h2 {
-    font-size: 3.8rem;
-    margin-bottom: 1.2rem;
+.hero h1 {
+  font-size: clamp(2.5rem, 6.5vw, 4.2rem);
+  margin-bottom: 1.5rem;
 }
 
 .hero p {
-    font-size: 1.5rem;
-    max-width: 700px;
-    margin: 0 auto 2.5rem;
+  font-size: 1.25rem;
+  color: var(--gray-6);
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
 }
 
-/* Features / Why us */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+/* ── Floating WhatsApp Button ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--whatsapp);
+  color: white;
+  border-radius: 50%;
+  font-size: 38px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.feature {
-    background: white;
-    padding: 2.5rem 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    text-align: center;
-    transition: all 0.3s ease;
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
 }
 
-.feature:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+.whatsapp-float i {
+  margin-top: -4px;
 }
 
-.feature::before {
-    content: attr(data-icon);
-    display: block;
-    font-size: 3.5rem;
-    margin-bottom: 1.2rem;
-    color: #e67e22;
+/* ── Floating Social Media Bar (right side) ── */
+.social-bar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 9998;
+  background: rgba(31, 41, 55, 0.94);
+  border-radius: 12px 0 0 12px;
+  padding: 14px 8px;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.3);
 }
 
-/* Services / Products list */
-.services-list {
-    list-style: none;
-    max-width: 600px;
-    margin: 2.5rem auto 0;
+.social-bar a {
+  color: white;
+  font-size: 1.55rem;
+  margin: 14px 10px;
+  display: block;
+  transition: all 0.25s ease;
 }
 
-.services-list li {
-    font-size: 1.3rem;
-    margin: 1.2rem 0;
-    padding-left: 2.2rem;
-    position: relative;
+.social-bar a:hover {
+  color: var(--primary-light);
+  transform: translateX(-5px);
 }
 
-.services-list li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #27ae60;
-    font-size: 1.4rem;
-}
-
-/* Contact */
-#contact p {
-    font-size: 1.3rem;
-    margin: 1.2rem 0;
-}
-
-#contact strong {
-    color: #1a3c34;
-}
-
-/* Footer */
-footer {
-    background-color: #0f2a24;
-    color: white;
-    text-align: center;
-    padding: 2.5rem 1rem;
-    margin-top: 4rem;
-}
-
-footer p {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-/* ==========================================================================
-   4. Responsive Adjustments
-   ========================================================================== */
-
+/* ── Responsive Design ── */
 @media (max-width: 768px) {
-    header h1 { font-size: 2.8rem; }
-    header p  { font-size: 1.2rem; }
-    
-    .hero h2 { font-size: 2.8rem; }
-    .hero p  { font-size: 1.3rem; }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    h2 { font-size: 2.2rem; }
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  .nav-links {
+    margin: 1.25rem 0 1rem;
+    flex-direction: column;
+    gap: 1.25rem;
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    padding: 100px 0 80px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 8vw, 3.6rem);
+  }
+
+  .hero p {
+    font-size: 1.125rem;
+  }
+
+  .whatsapp-float {
+    width: 56px;
+    height: 56px;
+    font-size: 34px;
+    bottom: 24px;
+    right: 24px;
+  }
+
+  /* Hide vertical social bar on mobile – too intrusive */
+  .social-bar {
+    display: none;
+  }
 }
 
-@media (max-width: 576px) {
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 1.9rem; }
-    
-    .hero {
-        padding: 6rem 1rem;
-    }
-    
-    .hero h2 { font-size: 2.4rem; }
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .btn-primary {
+    padding: 0.75rem 1.75rem;
+    width: 100%;
+    text-align: center;
+  }
 }
