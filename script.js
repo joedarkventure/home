@@ -1,44 +1,21 @@
-<script>
-/* =========================
-   MOBILE MENU TOGGLE
-========================= */
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+/* ================= MOBILE NAV TOGGLE ================= */
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
 
-function toggleMenu() {
+hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("show");
-}
+  hamburger.classList.toggle("active");
+});
 
-hamburger.addEventListener("click", toggleMenu);
-
-/* =========================
-   CLOSE MENU ON LINK CLICK
-========================= */
+/* Close menu when a nav link is clicked (mobile UX) */
 document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("show");
+    hamburger.classList.remove("active");
   });
 });
 
-/* =========================
-   SMOOTH SCROLLING
-========================= */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  });
-});
-
-/* =========================
-   ACTIVE NAV LINK ON SCROLL
-========================= */
+/* ================= ACTIVE LINK ON SCROLL ================= */
 const sections = document.querySelectorAll("section");
 const navItems = document.querySelectorAll(".nav-links a");
 
@@ -47,51 +24,34 @@ window.addEventListener("scroll", () => {
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop - 120;
-    if (pageYOffset >= sectionTop) {
+    if (scrollY >= sectionTop) {
       current = section.getAttribute("id");
     }
   });
 
-  navItems.forEach(a => {
-    a.classList.remove("active");
-    if (a.getAttribute("href") === "#" + current) {
-      a.classList.add("active");
+  navItems.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
     }
   });
 });
 
-/* =========================
-   SCROLL-IN ANIMATION
-========================= */
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
+/* ================= HEADER SHADOW ON SCROLL ================= */
+const header = document.querySelector(".site-header");
 
-document.querySelectorAll(".card").forEach(card => {
-  observer.observe(card);
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 20) {
+    header.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)";
+  } else {
+    header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.08)";
+  }
 });
-</script>
-<script>
-  let lastScrollY = window.scrollY;
-  const socialBar = document.querySelector(".social-bar");
 
-  window.addEventListener("scroll", () => {
-    if (!socialBar) return;
-
-    if (window.scrollY > lastScrollY) {
-      socialBar.style.opacity = "0";
-      socialBar.style.pointerEvents = "none";
-    } else {
-      socialBar.style.opacity = "1";
-      socialBar.style.pointerEvents = "auto";
-    }
-    lastScrollY = window.scrollY;
-  });
-</script>
+/* ================= OPTIONAL: SAFETY CHECK ================= */
+// Prevent errors if elements are missing
+window.addEventListener("DOMContentLoaded", () => {
+  if (!hamburger || !navLinks) {
+    console.warn("Navigation elements not found.");
+  }
+});
