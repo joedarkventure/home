@@ -1,6 +1,4 @@
-/* =========================
-   ROOT VARIABLES
-========================= */
+/* ================= ROOT VARIABLES ================= */
 :root {
   --primary: #1e40af;
   --primary-dark: #1e3a8a;
@@ -11,9 +9,7 @@
   --whatsapp: #25D366;
 }
 
-/* =========================
-   RESET & BASE
-========================= */
+/* ================= RESET & BASE ================= */
 * {
   margin: 0;
   padding: 0;
@@ -28,44 +24,39 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--light);
   color: var(--dark);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* ================= CONTAINER ================= */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 0 24px;
 }
 
-/* =========================
-   HEADER & NAVIGATION
-========================= */
-header {
+/* ================= HEADER & NAV ================= */
+.site-header {
   background: var(--white);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-nav {
+.navbar {
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 78px;
 }
 
 .logo img {
-  height: 50px;
+  height: 55px;
 }
 
-/* NAV LINKS */
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.2rem;
 }
 
 .nav-links a {
@@ -73,6 +64,7 @@ nav {
   font-weight: 500;
   color: var(--dark);
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover,
@@ -83,11 +75,11 @@ nav {
 .nav-links a::after {
   content: "";
   position: absolute;
+  left: 0;
+  bottom: -6px;
   width: 0;
   height: 2px;
   background: var(--primary);
-  left: 0;
-  bottom: -6px;
   transition: width 0.3s ease;
 }
 
@@ -96,7 +88,7 @@ nav {
   width: 100%;
 }
 
-/* HAMBURGER MENU */
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -108,11 +100,10 @@ nav {
   width: 26px;
   height: 3px;
   background: var(--dark);
+  transition: all 0.3s ease;
 }
 
-/* =========================
-   HERO SECTION
-========================= */
+/* ================= HERO ================= */
 .hero {
   padding: 140px 0 110px;
   background: linear-gradient(135deg, #eff6ff, #dbeafe);
@@ -120,21 +111,19 @@ nav {
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 700;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero p {
   max-width: 760px;
-  margin: auto;
+  margin: 0 auto 3rem;
   font-size: 1.25rem;
   color: var(--gray);
 }
 
-/* HERO STATS */
 .hero-stats {
-  margin-top: 60px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 28px;
@@ -142,142 +131,193 @@ nav {
 
 .stat {
   background: var(--white);
-  padding: 30px;
+  padding: 32px 24px;
   border-radius: 14px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.06);
 }
 
 .stat h3 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ================= GOLDEN ORDER BUTTON ================= */
+.btn-order {
+  display: inline-block;
+  margin-top: 6rem;                 /* doubled */
+  padding: 28px 72px;               /* doubled */
+  border-radius: 60px;
+  background: linear-gradient(
+    135deg,
+    #FFD700,
+    #E6B800
+  );                                /* rich gold */
+  color: #1a1a1a;                   /* dark text for contrast */
+  font-weight: 700;
+  font-size: 1.6rem;                /* increased text size */
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(218, 165, 32, 0.45);
+}
+
+.btn-order:hover {
+  background: linear-gradient(
+    135deg,
+    #E6B800,
+    #C99700
+  );
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(218, 165, 32, 0.65);
+}
+
+/* Smaller variant (still proportional) */
+.btn-order.small {
+  margin-top: 3rem;
+  padding: 18px 46px;
+  font-size: 1.1rem;
+}
+
+/* ================= SECTIONS ================= */
 section {
   padding: 100px 0;
 }
 
-.section-title {
+.section-header {
   text-align: center;
   margin-bottom: 70px;
 }
 
-.section-title h2 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
+.section-header h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
 }
 
-.section-title p {
-  max-width: 720px;
-  margin: auto;
+.lead {
+  font-size: 1.2rem;
   color: var(--gray);
-  font-size: 1.1rem;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-/* =========================
-   GRID & CARDS
-========================= */
-.grid {
+/* ================= GRID & CARDS ================= */
+.services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
 }
 
-.card {
+.service-card {
   background: var(--white);
-  padding: 36px;
+  padding: 40px 28px;
   border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+  text-align: center;
   transition: all 0.35s ease;
-  opacity: 0;
-  transform: translateY(30px);
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 55px rgba(0,0,0,0.1);
+.service-card img.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 1.5rem 0;
 }
 
-.card i {
-  font-size: 2.4rem;
+.icon {
+  font-size: 3.2rem;
   color: var(--primary);
-  margin-bottom: 18px;
+  margin-bottom: 1.2rem;
 }
 
-.card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+.service-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.8rem;
 }
 
-.card p {
+.service-card p {
   color: var(--gray);
   font-size: 1.05rem;
 }
 
-/* =========================
-   SECTION THEMES
-========================= */
-#materials {
+/* ================= SECTION BACKGROUNDS ================= */
+.materials-section {
   background: #f9fafb;
 }
 
-#designs {
+.designs-section {
   background: var(--white);
 }
 
-#contact {
-  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+/* ================= FOOTER ================= */
+.site-footer {
+  background: #0f172a;
+  color: #cbd5f5;
+  padding: 50px 0 30px;
+  text-align: center;
 }
 
-/* =========================
-   WHATSAPP FLOAT
-========================= */
-.whatsapp {
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 1.5rem;
+}
+
+.footer-socials a {
+  color: #cbd5f5;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--primary);
+  transform: translateY(-4px);
+}
+
+/* ================= WHATSAPP FLOAT ================= */
+.whatsapp-float {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   background: var(--whatsapp);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
-  font-size: 34px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  font-size: 36px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   z-index: 999;
   transition: transform 0.3s ease;
 }
 
-.whatsapp:hover {
-  transform: scale(1.08);
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
 
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
 
   .nav-links {
     position: absolute;
-    top: 78px;
-    right: 0;
+    top: 80px;
+    left: 0;
     width: 100%;
     background: var(--white);
     flex-direction: column;
     padding: 30px;
     display: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
 
   .nav-links.show {
@@ -292,79 +332,72 @@ section {
     padding: 80px 0;
   }
 
-  .card {
-    padding: 30px 26px;
+  .hero {
+    padding: 110px 0 80px;
   }
 }
-/* =========================
-   SOCIAL MEDIA FLOATING BAR
-========================= */
-.social-bar {
+/* Floating Buttons Container */
+.floating-buttons {
   position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background: rgba(17, 24, 39, 0.95);
-  padding: 12px 8px;
-  border-radius: 12px 0 0 12px;
-  z-index: 998;
+  bottom: 30px;
+  right: 30px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  box-shadow: -4px 0 15px rgba(0,0,0,0.25);
+  gap: 16px;
+  z-index: 1000;
 }
 
-.social-bar a {
-  color: #ffffff;
-  font-size: 1.4rem;
-  padding: 6px;
-  transition: all 0.3s ease;
-}
-
-.social-bar a:hover {
-  color: var(--primary);
-  transform: translateX(-6px);
-}
-
-/* =========================
-   FOOTER
-========================= */
-.site-footer {
-  background: #0f172a;
-  color: #cbd5f5;
-  padding: 40px 0;
-  text-align: center;
-}
-
-.site-footer p {
-  margin-bottom: 18px;
-  font-size: 0.95rem;
-}
-
-.footer-socials {
+/* Shared Floating Button Style */
+.floating-btn {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.footer-socials a {
-  color: #cbd5f5;
-  font-size: 1.3rem;
-  transition: color 0.3s ease, transform 0.3s ease;
+/* TikTok Button Styling */
+.tiktok-btn {
+  background: #000000; /* TikTok brand color (black) */
 }
 
-.footer-socials a:hover {
-  color: var(--primary);
-  transform: translateY(-4px);
+.tiktok-btn:hover {
+  background: #ff0050; /* TikTok accent color (pinkish-red) */
+  transform: scale(1.1);
 }
 
-/* Hide floating bar on small screens */
-@media (max-width: 768px) {
-  .social-bar {
-    display: none;
+/* WhatsApp Button Styling */
+.whatsapp-btn {
+  background: var(--whatsapp); /* Uses your defined WhatsApp green */
+}
+
+.whatsapp-btn:hover {
+  background: #20b058; /* Slightly darker green on hover */
+  transform: scale(1.1);
+}
+
+/* Optional: Adjust spacing on smaller screens */
+@media (max-width: 600px) {
+  .floating-buttons {
+    right: 20px;
+    bottom: 20px;
+  }
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
 }
-.social-bar a:hover .fa-tiktok,
-.footer-socials a:hover .fa-tiktok {
-  color: #00f2ea;
+.card-image {
+  width: 75%;          /* 75% of original width */
+  height: 350px;        /* keep current/natural height */
+  object-fit: contain;
+  display: block;
+  margin: 1rem auto;   /* centered */
 }
