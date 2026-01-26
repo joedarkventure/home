@@ -113,6 +113,50 @@ body {
   margin: 5px;
   background: #000;
 }
+/* ================= HERO ================= */
+.hero {
+  padding: 70px 0 60px; /* reduced vertical space */
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  text-align: center;
+}
+
+.hero h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0 auto 1.8rem; /* reduced spacing */
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+/* ===== HERO STATS ===== */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px; /* reduced gap */
+}
+
+.stat {
+  background: var(--white);
+  padding: 20px 18px; /* tighter padding */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.stat h3 {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+  color: var(--primary);
+}
+
+.stat p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
 
 
 /* ================= GOLDEN ORDER BUTTON ================= */
