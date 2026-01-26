@@ -395,32 +395,3 @@ section {
   display: block;
   margin: 1rem auto;   /* centered */
 }
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    display: none;
-    z-index: 999;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-}
