@@ -110,12 +110,6 @@ body {
   text-align: center;
 }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 3.0rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
 .hero p {
   max-width: 760px;
   margin: 0 auto 3rem;
@@ -396,8 +390,37 @@ section {
 }
 .card-image {
   width: 100%;          /*100% of original width */
-  height: 500px;        /* keep current/natural height */
+  height: 700px;        /* keep current/natural height */
   object-fit: contain;
   display: block;
   margin: 1rem auto;   /* centered */
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    display: none;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
 }
