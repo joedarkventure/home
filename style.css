@@ -105,13 +105,13 @@ body {
 
 /* ================= HERO ================= */
 .hero {
-  padding: 140px 0 110px;
+  padding: 130px 0 110px;
   background: linear-gradient(135deg, #eff6ff, #dbeafe);
   text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.0rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
@@ -395,10 +395,9 @@ section {
   }
 }
 .card-image {
-  width: 75%;          /* 75% of original width */
+  width: 100%;          /*100% of original width */
   height: 500px;        /* keep current/natural height */
   object-fit: contain;
   display: block;
   margin: 1rem auto;   /* centered */
 }
-
