@@ -396,8 +396,9 @@ section {
 }
 .card-image {
   width: 75%;          /* 75% of original width */
-  height: 350px;        /* keep current/natural height */
+  height: 500px;        /* keep current/natural height */
   object-fit: contain;
   display: block;
   margin: 1rem auto;   /* centered */
 }
+
